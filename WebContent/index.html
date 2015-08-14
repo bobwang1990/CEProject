@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CE App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!--add glyphicons-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet"
+          type="text/css"
+          href="//cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css" />
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/function.js"></script>
+
+    <script src="js/ajax_jquery.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/googlemap.js"></script>
+
+    <style>
+        .jumbotron {
+            background: url("img/background image 5.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Verdana;
+            color: darkgray;
+        }
+    </style>
+
+   
+</head>
+<body data-spy="scroll" data-target="#my-navbar" id="start">
+
+    <nav class="navbar navbar-inverse navbar-static" id="my-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#start" class="navbar-brand"><span><img src="img/logo.png" width="20" height="20" /></span> CE Resources</a>
+            </div><!--end of navbar header-->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="CE_Registration_Page.html" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+
+                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog well">
+                        <div class="loginmodal-container text-center">
+                            <h1 class="text-info text-center">Login to Your Account</h1><hr />
+                            <form name="vinform">
+                                <input type="text" id="usr" name="t1" placeholder="Username">
+                                <input type="password" id="psw" name="pass" placeholder="Password">
+                                <input type="button" id="login" data-dismiss="modal"  name="login" 
+                                class="login loginmodal-submit btn-success" value="Login">
+                            </form>
+
+                            <div class="login-help">
+                                <a href="CE_Registration_Page.html">Register</a> - <a href="#">Forgot Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#orders">Orders</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div><!--end of container-->
+    </nav><!--end of my-navbar-->
+    
+    <div class="jumbotron">
+        <div class="container-fluid text-center">
+            <h1>CE Resources</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis metus nec lorem tempor, ut viverra massa porttitor. </p>
+            <div class="btn-group">
+                <a href="" class="btn btn-lg btn-warning">Download</a>
+                <a href="" class="btn btn-lg btn-success">Visit Store</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section>
+            <div class="row bg-info">
+                <div class="col-sm-12 text-center">
+                    <h4 itemprop="headline">Welcome: <span id="info">Customer</span></h4>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <section>
+            <div class="row bg-primary">
+                <div class="col-sm-3">
+                    <h4 itemprop="headline">Avl.Equity: <span id="avl"></span></h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Total.Equity: <span id="total"></span></h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Unrealized P/L: <span id="unr"></span></h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Cash: <span id="cash"></span></h4>
+                </div>
+            </div>
+        </section>
+    </div>
+    <hr class="colorgraph container" />
+    <div class="container" id="show_data">
+        <section>
+            <div class="page-header" id="feedback">
+                <h2>Currency Exchange Rate.<small>(Refresh every second)</small></h2>
+            </div>
+            <div class="row well">
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/CNY</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag cn"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="CNY">6.2097</td>
+                                    <td id ="CNY"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CNY">6.2097</td>
+                                    <td id="CNY1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CNY">6.2097</td>
+                                    <td id="CNY2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/AUD</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag au"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="AUD">1.3535</td>
+                                    <td id="AUD"></td>
+                                </tr>
+                                <tr>
+                                    <td class="AUD">1.3535</td>
+                                    <td id="AUD1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="AUD">1.3535</td>
+                                    <td id="AUD2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/GBP</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag gb"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="GBP">0.6445</td>
+                                    <td id="GBP"></td>
+                                </tr>
+                                <tr>
+                                    <td class="GBP">0.6445</td>
+                                    <td id="GBP1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="GBP">0.6445</td>
+                                    <td id="GBP2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/CAD</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag ca"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="CAD">1.3082</td>
+                                    <td id="CAD"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CAD">1.3082</td>
+                                    <td id="CAD1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CAD">1.3082</td>
+                                    <td id="CAD2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row well">
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/INR</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag in"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="INR">63.815</td>
+                                    <td id="INR"></td>
+                                </tr>
+                                <tr>
+                                    <td class="INR">63.815</td>
+                                    <td id="INR1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="INR">63.815</td>
+                                    <td id="INR2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/JPY</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag jp"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="JPY">124.7000</td>
+                                    <td id="JPY"></td>
+                                </tr>
+                                <tr>
+                                    <td class="JPY">124.7000</td>
+                                    <td id="JPY1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="JPY">124.7000</td>
+                                    <td id="JPY2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/EUR</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li style="display:inline;"><img src="img/United-states-flag.png" width="32" height="32" /></li>
+                                <li style="display:inline;"><img src="img/European-union-flag.png" width="32" height="32" /></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="EUR">0.914</td>
+                                    <td id="EUR"></td>
+                                </tr>
+                                <tr>
+                                    <td class="EUR">0.914</td>
+                                    <td id="EUR1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="EUR">0.914</td>
+                                    <td id="EUR2"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <h4 class="text-center">USD/CHF</h4>
+                            <ul class="f32">
+                                <li class="flag eu"></li>
+                                <li class="flag us"></li>
+                                <li class="flag ch"></li>
+                            </ul>
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th class="warning">Ask</th>
+                                    <th class="info">Bid</th>
+                                </tr>
+                                <tr>
+                                    <td class="CHF">0.9814</td>
+                                    <td id="CHF"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CHF">0.9814</td>
+                                    <td id="CHF1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="CHF">0.9814</td>
+                                    <td id="CHF2"></td>
+                                </tr>
+                            </table>
+                            <!--p>
+                                Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                                odio sit amet molestie tincidunt, turpis est interdum tortor
+                                Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                                odio sit amet molestie tincidunt, turpis est interdum tortor
+                            </p-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <div class="page-header" id="orders">
+                <h2>Orders Information.<small>(provide you order positions and list)</small></h2>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-info">
+                    <div class="panel-body bg-info">
+                        <span class="glyphicon glyphicon-play-circle"></span>
+                        <h4>Open Positions</h4>
+                        
+                        <form class="form-inline">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-danger">Sell</button>
+                                <button type="submit" class="btn btn-success">Buy</button>
+                            </div>                            
+                        </form>
+                        <br />
+                        <hr />
+                        
+                        <form class="form-inline">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-danger">Sell</button>
+                                <button type="submit" class="btn btn-success">Buy</button>
+                            </div>
+                        </form>
+
+                        <br />
+                        <hr />
+
+                        <form class="form-inline">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-danger">Sell</button>
+                                <button type="submit" class="btn btn-success">Buy</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-success">
+                    <div class="panel-body bg-success">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <h4>Order Lists</h4>
+                        <p>
+                            Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                            odio sit amet molestie tincidunt, turpis est interdum tortor
+                            Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                            odio sit amet molestie tincidunt, turpis est interdum tortor
+                            Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                            odio sit amet molestie tincidunt, turpis est interdum tortor
+                            Sed aliquam quam turpis. Quisque quis ultrices diam. Nullam fermentum,
+                            odio sit amet molestie tincidunt, turpis est interdum tortor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="container">
+        <div class="page-header" id="contact">
+            <h2>Contact Us.<small>(feel free to contact us)</small></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="well well-sm">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="name">User Name</label>
+                                <div class="input-group">
+                                    
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        Subject
+                                    </label>
+                                    <select id="subject" name="subject" class="form-control" required="required">
+                                        <option value="na" selected="">Choose One:</option>
+                                        <option value="service">General Customer Service</option>
+                                        <option value="suggestions">Suggestions</option>
+                                        <option value="product">Technology Support</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Message
+                                    </label>
+                                    <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                              placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <form>
+                    <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+                    <address>
+                        <strong>CE, Inc.</strong><br>
+                        1 Coprate Place South, <br />
+                        Piscataway, NJ 08854<br />
+                        <abbr title="Phone">
+                            Phone:
+                        </abbr>
+                        (123) 456-7890
+                    </address>
+                    <address>
+                        <strong>Full Name</strong><br>
+                        <a href="mailto:#">bestwbt@163.com</a>
+                    </address>
+                </form>
+            </div>
+        </div>
+    </div>
+     <div class="container" id="map" style="width: 100%; height: 400px;"></div>
+    <div class="container-fluid well-sm bg-info">
+        <div class="container">
+            <footer>
+                <!--ul class="f32">
+            <li class="flag ar"></li>
+            <li class="flag au"></li>
+            <li class="flag at"></li>
+            <li class="flag us"></li>
+            <li class="flag cn"></li>
+            <li class="flag gb"></li>
+            <li class="flag fr"></li>
+            <li class="flag ca"></li>
+        </!--ul-->
+                <span class="pull-right"><small>&copy; 2015 CE All rights Reserved</small></span>
+            </footer>
+        </div>
+    </div>
+          <script src="js/jquery-2.1.4.min.js"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

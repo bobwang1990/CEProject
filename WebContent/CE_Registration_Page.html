@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!--add glyphicons-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding:20px;
+            background: url("img/bg_form.jpg") no-repeat center center fixed;
+        }
+        .well{
+            opacity:0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2" style="color:wheat; font-family:Verdana">
+                <h1 class="text-center"><strong>CE</strong> Registration Form</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis metus nec lorem tempor, ut viverra massa porttitor
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis metus nec lorem tempor, ut viverra massa porttitor
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis metus nec lorem tempor, ut viverra massa porttitor
+                </p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+                <img src="img/iphone.png"/>
+            </div>
+            <div class="col-sm-5 well">
+                <form action="/CEProject/UserController" method="post" class="form-group">
+                    <div class="form-group-lg">
+                        <h3 class="text-info text-center">Please Sign Up For Free</h3>
+                    </div>
+                    <div class="form-group">
+                        <!--this allows us to giving some space between two forms-->
+                        <label for="element-1" class="sr-only">This is label1</label>
+                        <input type="text" name="fname" id="element-1" class="form-control input-lg" placeholder="enter your first name" required />
+                    </div>
+                    <div class="form-group">
+                        <!--this allows us to giving some space between two forms-->
+                        <label for="element-2" class="sr-only">This is label2</label>
+                        <input type="text" name="lname" id="element-2" class="form-control input-lg" placeholder="enter your last name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="element-3" class="sr-only">This is label3</label>
+                        <input type="text" name="avl" id="element-3" class="form-control input-lg" placeholder="enter available asset" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="element-4" class="sr-only">This is label4</label>
+                        <input type="text" name="total" id="element-4" class="form-control input-lg" placeholder="enter total asset" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="element-5" class="sr-only">This is label5</label>
+                        <input type="text" name="unrealized" id="element-5" class="form-control input-lg" placeholder="enter unrealized asset" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="element-6" class="sr-only">This is label6</label>
+                        <input type="text" name="cash" id="element-6" class="form-control input-lg" placeholder="enter cash" required/>
+                    </div>
+                    <div class="checkbox"></div>
+                    <!--label for=""><input type="checkbox" />Remember me</label-->
+                    <input type="submit" class="btn btn-success btn-lg col-sm-12" value="Register"/>
+
+                </form>
+                <hr />
+                   	<div>
+                    	<h4>Already have an account?<a href="index.html">Login Here</a></h4>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
